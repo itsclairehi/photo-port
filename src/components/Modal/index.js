@@ -1,8 +1,9 @@
 import React from "react";
 
-function Modal({currentPhoto}) {
-    //recieves currentPhoto as a prop from PhotoList component at line 121, which is initialized as the getter in a useState hook at 109. it's original properties come from the photos array at line 9.  it is then destructured from 'props' here
-    //each key is destructured further from currentPhoto to be used in return statement
+function Modal({onClose, currentPhoto}) {
+    //recieves currentPhoto as a prop from PhotoList component at line 121, which is initialized as the getter in a useState hook at 109. its original properties come from the photos array at line 9.  it is then destructured from 'props' here
+    //each key is destructured further from currentPhoto to be used in return statement.
+//the onClose prop contains the toggleModal function from photoList, which toggles the state of the Modal (if state is true it's rendered)
     const {name, category, description, index}=currentPhoto
 
     return (
@@ -13,7 +14,7 @@ function Modal({currentPhoto}) {
                 <p>
                     {description}
                 </p>
-                <button type="button">
+                <button onClick={onClose} type="button">
                     Close this modal
                 </button>
             </div>
